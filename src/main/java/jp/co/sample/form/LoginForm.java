@@ -1,7 +1,7 @@
 package jp.co.sample.form;
 
 /**
- * ログイン情報を登録するフォーム
+ * ログイン情報を登録するフォーム.
  * 
  * @author tomoki.hirobe
  */

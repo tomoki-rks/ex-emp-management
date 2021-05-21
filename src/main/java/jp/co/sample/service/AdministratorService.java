@@ -8,7 +8,7 @@ import jp.co.sample.domain.Administrator;
 import jp.co.sample.repository.AdministratorRepository;
 
 /**
- * 管理者情報関連サービス
+ * 管理者情報関連サービス.
  * 
  * @author tomoki.hirobe
  */
@@ -25,5 +25,16 @@ public class AdministratorService {
      */
     public void insert(Administrator administrator) {
         administratorRepository.insert(administrator);
+    }
+
+    /**
+     * 入力されたメールアドレスとパスワードをもとに管理者情報をデータベースに問い合わせる.
+     * 
+     * @param mailAddress メールアドレス
+     * @param password    パスワード
+     * @return 管理者情報 DBに存在しなかった場合はNull
+     */
+    public Administrator login(String mailAddress, String password) {
+        return administratorRepository.findByMailAddressAndPassword(mailAddress, password);
     }
 }
