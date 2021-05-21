@@ -66,4 +66,14 @@ public class AdministratorController {
         administratorService.insert(administrator);
         return "redirect:/";
     }
+
+    /**
+     * ログイン画面の表示
+     * 
+     * @return ログイン画面
+     */
+    @RequestMapping("/")
+    public String toLogin() {
+        return "administrator/login";
+    }
 }
