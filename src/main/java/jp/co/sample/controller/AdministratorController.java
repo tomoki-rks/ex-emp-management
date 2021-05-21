@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jp.co.sample.domain.Administrator;
 import jp.co.sample.form.InsertAdministratorForm;
+import jp.co.sample.form.LoginForm;
 import jp.co.sample.service.AdministratorService;
 
 /**
@@ -20,13 +22,23 @@ public class AdministratorController {
     private AdministratorService administratorService;
 
     /**
-     * フォームの初期化.
+     * InsertAdministratorフォームの初期化.
      * 
-     * @return フォーム
+     * @return InsertAdministratorフォーム
      */
     @ModelAttribute
-    public InsertAdministratorForm setUpForm() {
+    public InsertAdministratorForm setUpInsertAdministratorForm() {
         return new InsertAdministratorForm();
+    }
+
+    /**
+     * Loginフォームの初期化
+     * 
+     * @return ログインフォーム
+     */
+    @ModelAttribute
+    public LoginForm setUpLoginForm() {
+        return new LoginForm();
     }
 
     /**
@@ -37,5 +49,21 @@ public class AdministratorController {
     @RequestMapping("/toInsert")
     public String toInsert() {
         return "administrator/insert";
+    }
+
+    /**
+     * 管理者情報の登録.
+     * 
+     * @param form フォーム入力情報
+     * @return ログイン画面へリダイレクト
+     */
+    @RequestMapping("/insert")
+    public String insert(InsertAdministratorForm form) {
+        Administrator administrator = new Administrator();
+        administrator.setName(form.getName());
+        administrator.setMailAddress(form.getMailAddress());
+        administrator.setPassword(form.getPassword());
+        administratorService.insert(administrator);
+        return "redirect:/";
     }
 }
