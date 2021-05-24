@@ -13,7 +13,7 @@ import jp.co.sample.form.UpdateEmployeeForm;
 import jp.co.sample.service.EmployeeService;
 
 /**
- * 従業員情報関連コントローラ
+ * 従業員情報関連コントローラ.
  * 
  * @author tomoki.hirobe
  */
@@ -21,7 +21,7 @@ import jp.co.sample.service.EmployeeService;
 @RequestMapping("/employee")
 public class EmployeeController {
     @Autowired
-    EmployeeService employeeService;
+    private EmployeeService employeeService;
 
     @ModelAttribute
     UpdateEmployeeForm setUpUpdateEmployeeForm() {
@@ -29,7 +29,7 @@ public class EmployeeController {
     }
 
     /**
-     * 従業員一覧の画面を表示するコントローラ
+     * 従業員一覧の画面を表示するコントローラ.
      * 
      * @param model requestスコープ
      * @return 従業員一覧リストを表示
@@ -42,7 +42,7 @@ public class EmployeeController {
     }
 
     /**
-     * 従業員詳細画面を表示するコントローラ
+     * 従業員詳細画面を表示するコントローラ.
      * 
      * @param id    従業員ID
      * @param model requestスコープ
@@ -56,7 +56,7 @@ public class EmployeeController {
     }
 
     /**
-     * 従業員の扶養人数を更新するコントローラ
+     * 従業員の扶養人数を更新するコントローラ.
      * 
      * @param form フォーム情報
      * @return 従業員一覧へリダイレクト

@@ -18,7 +18,7 @@ import jp.co.sample.repository.EmployeeRepository;
 @Transactional
 public class EmployeeService {
     @Autowired
-    EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
 
     /**
      * 従業員一覧をデータベースに問い合わせる.
